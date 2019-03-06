@@ -1,0 +1,912 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/4/2019 9:00:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-FTI3RT4H"
+  DTS:CreatorName="LAPTOP-FTI3RT4H\gusta"
+  DTS:DTSID="{C40AE6E4-490A-4861-B397-0234F910FDE5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1053"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{77D475DD-0BE5-4210-9F7D-7562481B5836}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[iot18sqlserver1.database.windows.net.IoT18SQLdb.gustafeden]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D5378161-1FEC-45F0-B7C1-DBACFC0B7132}"
+      DTS:ObjectName="iot18sqlserver1.database.windows.net.IoT18SQLdb.gustafeden">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=iot18sqlserver1.database.windows.net;User ID=gustafeden;Initial Catalog=IoT18SQLdb;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQFa70sQ8UUqUNVltGBymZAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADt8vvsamWQ72A/tCvG/nE0thvJZgq+Rt4Xpr0OIX9C/wAAAAAOgAAAAAIAACAAAADegiQHXYOGl/LiwXdir/du86AykoczNcpYWrWjnPl7/yAAAACfrn+cLJcUQiyhaTzrXI4tPJU4yEq4wXg01XYHA6hEkkAAAAADZowJ6o2nF4flxh+mxRMOV7Srb+Y8rqsOYoQC0vu1bg2nawUoJF1KRDEcCqP3wWO6FBhw1bn+6E9AwxEfckcW</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[iot18sqlserver1.database.windows.net.IoT18SQLdw.gustafeden]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4204994A-C91E-45CE-AF9C-716D9F9637E2}"
+      DTS:ObjectName="iot18sqlserver1.database.windows.net.IoT18SQLdw.gustafeden">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=iot18sqlserver1.database.windows.net;User ID=gustafeden;Initial Catalog=IoT18SQLdw;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQFa70sQ8UUqUNVltGBymZAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADBxEc5egB7TJSReQvOphB78lByUAr3D0UBO0KVoKno/QAAAAAOgAAAAAIAACAAAAAuL5YXGRmHvGSbSBvM9fQIw+O0pHnPHglrcgxbEqvYiyAAAAD7JJ7Jqo9whsGRUcYLeu4W1b6EcCWTeLdMojkbHGUHDUAAAADxWFeMS/RJNQGSwwffhEMT6itkWIDxr3oWk4W1PswDVC/hFvbA4dsS4bZY8ApAwWtQOpX5lZXqi/wu4CHh5k35</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[iot18storageblob]"
+      DTS:CreationName="AzureStorage"
+      DTS:DTSID="{D117C40C-95B8-497F-AE4A-96F5E71D8817}"
+      DTS:ObjectName="iot18storageblob">
+      <DTS:ObjectData>
+        <AzureStorageConnectionManager
+          ConnectionString="DefaultEndpointsProtocol=https;AccountName=iot18storageblob;EndpointSuffix=core.windows.net">
+          <AccountKey
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQFa70sQ8UUqUNVltGBymZAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADMMru44YYv4p+tBOfq2rstWj0C8nJ+QVERBUgADS4/cQAAAAAOgAAAAAIAACAAAABLLcnWebcKnvpp0a7QnUSVvC+oVcbByZVZcXYmeeX14cAAAACVlMPa9UfThgvMXYpaRDiubnXAwXaJzaJ3U/EyWp7EoOq9TkPyFIfQNHjqui4PRgGmbDJn9KsUxi5n65hyON6LT8Nv/fdBEzXpOqBpOLDCchAKgZ73WTBKTFiwMSsETkcUDerU3MDxPQgMWeF9L/l5hTPCZQ28fT9poY/J+JvAQDdmXFaJBER6y2WPOQqsBtiPLT5me+bAGu7Q6jbF5CgL2IOl6rXX6IQuNKdxvF1Xe88v42pAwBq3vREtnNMhA51AAAAAdx8xDyg70QgkiCribvhRsGbqVTgU/YOkhkvr/Hk4IjL/vwqA8K8akjCz3PRWHzxmhuR4ssaDAkykLF27SsftvQ</AccountKey>
+        </AzureStorageConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F3BAB94C-B496-47A0-8150-AABC31F19BF0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D5378161-1FEC-45F0-B7C1-DBACFC0B7132}"
+          SQLTask:SqlStatementSource="Delete from [Messages]&#xA;DBCC CHECKIDENT('Messages', RESEED, 0)&#xA;GO&#xA;Delete from Devices&#xA;DBCC CHECKIDENT('Devices', RESEED, 0)&#xA;GO&#xA;Delete from DeviceTypes&#xA;DBCC CHECKIDENT('DeviceTypes', RESEED, 0)&#xA;GO&#xA;Delete from Students&#xA;DBCC CHECKIDENT('Students', RESEED, 0)&#xA;GO&#xA;Delete from Locations&#xA;DBCC CHECKIDENT('Locations', RESEED, 0)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\populate students"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C14EFF25-BDCA-46F2-BEB2-AFD3A2A8C657}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="populate students"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\populate students\Azure Blob Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="© Microsoft Corporation; All Rights Reserved;"
+              description="Extracts data from a blob in Azure Storage. The supported file formats are: Text and Avro."
+              name="Azure Blob Source"
+              usesDispositions="true"
+              validateExternalMetadata="False">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of blob container"
+                  expressionType="Notify"
+                  name="Blob Container">csvfolder</property>
+                <property
+                  dataType="System.String"
+                  description="The full name of blob"
+                  expressionType="Notify"
+                  name="Blob Name">iotmessages.csv</property>
+                <property
+                  dataType="System.Int32"
+                  description="The format of blob file"
+                  name="Blob Format"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzBlobFormatEnumStringConverter">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Compress File"
+                  name="Compress File">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The compression type"
+                  name="Compression Type"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionTypeEnumStringConverter">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The compression level"
+                  name="Compression Level"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionLevelEnumStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  description="The character used to delimit columns in text file"
+                  name="Column Delimiter">,</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Column names in the first data row"
+                  name="First Row as Column Names">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">AzBlobSrc</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\populate students\Azure Blob Source.Connections[Azure Storage]"
+                  connectionManagerID="Package.ConnectionManagers[iot18storageblob]"
+                  connectionManagerRefId="Package.ConnectionManagers[iot18storageblob]"
+                  description="Connection Manager for Azure Storage"
+                  name="Azure Storage" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\populate students\Azure Blob Source.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[deviceid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[deviceid]"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[deviceid]"
+                      name="deviceid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ type]"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ type]"
+                      name=" type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ student]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ student]"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ student]"
+                      name=" student"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ latitude]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ latitude]"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ latitude]"
+                      name=" latitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ longitude]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ longitude]"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ longitude]"
+                      name=" longitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ temperature]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ temperature]"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ temperature]"
+                      name=" temperature"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ humidity]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ humidity]"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ humidity]"
+                      name=" humidity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ created]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ created]"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ created]"
+                      name=" created"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[deviceid]"
+                      dataType="wstr"
+                      length="255"
+                      name="deviceid" />
+                    <externalMetadataColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ type]"
+                      dataType="wstr"
+                      length="255"
+                      name=" type" />
+                    <externalMetadataColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ student]"
+                      dataType="wstr"
+                      length="255"
+                      name=" student" />
+                    <externalMetadataColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ latitude]"
+                      dataType="wstr"
+                      length="255"
+                      name=" latitude" />
+                    <externalMetadataColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ longitude]"
+                      dataType="wstr"
+                      length="255"
+                      name=" longitude" />
+                    <externalMetadataColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ temperature]"
+                      dataType="wstr"
+                      length="255"
+                      name=" temperature" />
+                    <externalMetadataColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ humidity]"
+                      dataType="wstr"
+                      length="255"
+                      name=" humidity" />
+                    <externalMetadataColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Output].ExternalColumns[ created]"
+                      dataType="wstr"
+                      length="255"
+                      name=" created" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\populate students\Azure Blob Source.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[deviceid]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[deviceid]"
+                      name="deviceid" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ type]"
+                      name=" type" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ student]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ student]"
+                      name=" student" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ latitude]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ latitude]"
+                      name=" latitude" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ longitude]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ longitude]"
+                      name=" longitude" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ temperature]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ temperature]"
+                      name=" temperature" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ humidity]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ humidity]"
+                      name=" humidity" />
+                    <outputColumn
+                      refId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ created]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Error output].Columns[ created]"
+                      name=" created" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\populate students\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Students]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Students]) [refTable]
+where [refTable].[Name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StudentId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\populate students\Sort.Outputs[Sort Output].Columns[ student]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\populate students\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[iot18sqlserver1.database.windows.net.IoT18SQLdb.gustafeden]"
+                  connectionManagerRefId="Package.ConnectionManagers[iot18sqlserver1.database.windows.net.IoT18SQLdb.gustafeden]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\populate students\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\populate students\Lookup.Inputs[Lookup Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName=" student"
+                      cachedSortKeyPosition="1"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\populate students\Sort.Outputs[Sort Output].Columns[ student]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Name</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Name</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\populate students\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\populate students\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\populate students\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\populate students\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\populate students\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\populate students\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate students\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\populate students\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\populate students\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\populate students\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\populate students\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Students]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\populate students\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[iot18sqlserver1.database.windows.net.IoT18SQLdb.gustafeden]"
+                  connectionManagerRefId="Package.ConnectionManagers[iot18sqlserver1.database.windows.net.IoT18SQLdb.gustafeden]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\populate students\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\populate students\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ student]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName=" student"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\populate students\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\populate students\Sort.Outputs[Sort Output].Columns[ student]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\populate students\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StudentId]"
+                      dataType="i4"
+                      name="StudentId" />
+                    <externalMetadataColumn
+                      refId="Package\populate students\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\populate students\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\populate students\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate students\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\populate students\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\populate students\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\populate students\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\populate students\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\populate students\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\populate students\Sort.Inputs[Sort Input].Columns[ student]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName=" student"
+                      lineageId="Package\populate students\Azure Blob Source.Outputs[Output].Columns[ student]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\populate students\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate students\Sort.Outputs[Sort Output].Columns[ student]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\populate students\Sort.Outputs[Sort Output].Columns[ student]"
+                      name=" student"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\populate students\Azure Blob Source.Outputs[Output].Columns[ student]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\populate students.Paths[Output]"
+              endId="Package\populate students\Sort.Inputs[Sort Input]"
+              name="Output"
+              startId="Package\populate students\Azure Blob Source.Outputs[Output]" />
+            <path
+              refId="Package\populate students.Paths[Sort Output]"
+              endId="Package\populate students\Lookup.Inputs[Lookup Input]"
+              name="Sort Output"
+              startId="Package\populate students\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{83BD574E-6ECD-4824-B8E8-8DA078CF88F6}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\populate students" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\populate students"
+          TopLeft="1.14285716231988,119.294119320114" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="231.428575369777,60.5647067317501" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="231.428575369777,81.3647067317501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-67.8857182074567,58.7294125883637"
+              Start="0,0"
+              End="-60.3857182074567,58.7294125883637">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-29.9428591037284,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.9428591037284,0"
+                    Point2="-33.9428591037284,0"
+                    Point3="-33.9428591037284,4" />
+                  <mssgle:LineSegment
+                    End="-33.9428591037284,54.7294125883637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33.9428591037284,54.7294125883637"
+                    Point2="-33.9428591037284,58.7294125883637"
+                    Point3="-37.9428591037284,58.7294125883637" />
+                  <mssgle:LineSegment
+                    End="-60.3857182074567,58.7294125883637" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\populate students">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\populate students\Azure Blob Source"
+          TopLeft="171.428574347983,34.2588240098788" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\populate students\OLE DB Destination"
+          TopLeft="382.500006420272,221.605885383745" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\populate students\Lookup"
+          TopLeft="201.1428605683,112.894118882546" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\populate students\Sort"
+          TopLeft="382.142863650711,100.176471993172" />
+        <EdgeLayout
+          Id="Package\populate students.Paths[Output]"
+          TopLeft="253.428574347983,75.8588240098788">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="177.514289302729,24.3176479832936"
+              Start="0,0"
+              End="177.514289302729,16.8176479832936">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.15882399164681" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.15882399164681"
+                    Point2="0,12.1588239916468"
+                    Point3="4,12.1588239916468" />
+                  <mssgle:LineSegment
+                    End="173.514289302729,12.1588239916468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="173.514289302729,12.1588239916468"
+                    Point2="177.514289302729,12.1588239916468"
+                    Point3="177.514289302729,16.1588239916468" />
+                  <mssgle:LineSegment
+                    End="177.514289302729,16.8176479832936" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\populate students.Paths[Sort Output]"
+          TopLeft="382.142863650711,120.976471993172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-68.2000030824117,12.7176468893731"
+              Start="0,0"
+              End="-60.7000030824117,12.7176468893731">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-30.1000015412058,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.1000015412058,0"
+                    Point2="-34.1000015412058,0"
+                    Point3="-34.1000015412058,4" />
+                  <mssgle:LineSegment
+                    End="-34.1000015412058,8.71764688937309" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.1000015412058,8.71764688937309"
+                    Point2="-34.1000015412058,12.7176468893731"
+                    Point3="-38.1000015412058,12.7176468893731" />
+                  <mssgle:LineSegment
+                    End="-60.7000030824117,12.7176468893731" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\populate students\Azure Blob Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\populate students\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\populate students\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Students]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
